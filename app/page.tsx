@@ -7,6 +7,7 @@ import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
 import LocationContact from "@/components/LocationContact";
+import InstagramFeed from "@/components/InstagramFeed";
 import BottomNav from "@/components/BottomNav"; 
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <WhyChooseUs />
       <Testimonials />
       <LocationContact />
+      <InstagramFeed />
       
       <footer className="w-full bg-[#111827] text-gray-400 py-8 text-center text-sm border-t border-[#1f2937]">
         <p className="font-medium text-gray-300">© {new Date().getFullYear()} EuroKids Daycare, Preschool & Activity Centre. Sector 86, Faridabad.</p>
