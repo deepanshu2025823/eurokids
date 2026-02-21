@@ -72,7 +72,6 @@ export default function InstagramFeed() {
                 src={getEmbedUrl(url)} 
                 className="w-full h-full border-0 absolute top-0 left-0"
                 scrolling="no" 
-                allowTransparency={true}
                 allow="encrypted-media; autoplay"
                 title={`EuroKids Reel ${index + 1}`}
               ></iframe>
