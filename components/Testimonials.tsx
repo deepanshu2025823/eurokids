@@ -36,7 +36,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto relative z-10 px-4 lg:px-8">
         
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-[#183385] text-2xl sm:text-3xl md:text-4xl lg:text-[35px] font-extrabold flex flex-wrap items-center justify-center gap-2 md:gap-3 leading-snug">
+          <h2 className="text-[#183385] text-2xs sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold flex flex-wrap items-center justify-center gap-2 md:gap-3 leading-snug">
             <span className="text-[#ec008c] text-2xl sm:text-3xl md:text-4xl drop-shadow-sm">★</span> 
             What Parents Say About Us
             <span className="text-[#ec008c] text-2xl sm:text-3xl md:text-4xl drop-shadow-sm">★</span>
