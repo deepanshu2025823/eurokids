@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import Programs from "@/components/Programs";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import Testimonials from "@/components/Testimonials";
 import LocationContact from "@/components/LocationContact";
 import BottomNav from "@/components/BottomNav"; 
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Programs />
       <Services />
       <WhyChooseUs />
+      <Testimonials />
       <LocationContact />
       
       <footer className="w-full bg-[#111827] text-gray-400 py-8 text-center text-sm border-t border-[#1f2937]">
