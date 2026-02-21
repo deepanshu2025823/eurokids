@@ -33,7 +33,7 @@ export default function LocationContact() {
                 <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg>
               </div>
               <p className="text-gray-700 font-semibold text-[15px] md:text-lg leading-relaxed">
-                Summer Palm Society, <br className="hidden md:block" />
+                Summer Palms Society, <br className="hidden md:block" />
                 Near Amolik chowk Sec-86 Faridabad, Haryana-121002
               </p>
             </address>
