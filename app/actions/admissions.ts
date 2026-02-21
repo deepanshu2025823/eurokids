@@ -1,3 +1,5 @@
+// app/actions/admissions.ts
+
 "use server"
 
 import nodemailer from 'nodemailer';
@@ -61,6 +63,7 @@ export async function submitAdmissionForm(formData: any) {
         <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 600px;">
           <tr><td><strong>Parent's Name</strong></td><td>${formData.parentName}</td></tr>
           <tr><td><strong>Child's Name</strong></td><td>${formData.childName}</td></tr>
+          <tr><td><strong>Child's Date of Birth</strong></td><td>${formData.childDob}</td></tr>
           <tr><td><strong>Email</strong></td><td>${formData.email} (Verified)</td></tr>
           <tr><td><strong>Mobile Number</strong></td><td>${formData.mobile}</td></tr>
           <tr><td><strong>Selected Program</strong></td><td>${formData.program}</td></tr>

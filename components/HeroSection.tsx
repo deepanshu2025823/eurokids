@@ -20,6 +20,7 @@ export default function HeroSection() {
   const [formData, setFormData] = useState({
     parentName: "",
     childName: "",
+    childDob: "",
     mobile: "",
     program: "",
   });
@@ -63,13 +64,13 @@ export default function HeroSection() {
     if (res.success) {
       alert("Form Submitted Successfully! We will contact you soon.");
       
-      const waText = `Hello EuroKids,%0A%0AI have submitted an admission enquiry.%0A*Parent Name:* ${formData.parentName}%0A*Child Name:* ${formData.childName}%0A*Program:* ${formData.program}%0A*Mobile:* ${formData.mobile}%0A*Email:* ${email}`;
+      const waText = `Hello EuroKids,%0A%0AI have submitted an admission enquiry.%0A*Parent Name:* ${formData.parentName}%0A*Child Name:* ${formData.childName}%0A*Date of Birth:* ${formData.childDob}%0A*Program:* ${formData.program}%0A*Mobile:* ${formData.mobile}%0A*Email:* ${email}`;
       window.open(`https://wa.me/919958313631?text=${waText}`, '_blank');
 
       closeModal(); 
       setIsVerified(false);
       setOtpSent(false);
-      setFormData({ parentName: "", childName: "", mobile: "", program: "" });
+      setFormData({ parentName: "", childName: "", childDob: "", mobile: "", program: "" });
       setEmail("");
       setOtp("");
       setMessage("");
@@ -223,6 +224,11 @@ export default function HeroSection() {
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-1">Child's Name <span className="text-red-500">*</span></label>
                   <input required type="text" value={formData.childName} onChange={(e) => setFormData({...formData, childName: e.target.value})} placeholder="Child's Full Name" className="w-full px-4 py-2 border rounded-md text-black focus:ring-2 focus:ring-[#183385] outline-none" />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-1">Child's Date of Birth <span className="text-red-500">*</span></label>
+                  <input required type="date" value={formData.childDob} onChange={(e) => setFormData({...formData, childDob: e.target.value})} className="w-full px-4 py-2 border rounded-md text-black focus:ring-2 focus:ring-[#183385] outline-none bg-white" />
                 </div>
 
                 <div>
