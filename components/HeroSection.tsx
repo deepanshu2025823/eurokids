@@ -83,8 +83,8 @@ export default function HeroSection() {
     <>
       <section className="relative w-full bg-[#183385] overflow-hidden text-white flex flex-col pt-20">
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-12 lg:py-24 flex flex-col items-start text-left">
-          <div className="w-full lg:w-[55%]">
-            <h1 className="text-[32px] sm:text-4xl lg:text-[42px] font-bold leading-tight md:leading-[1.2] mb-8 text-white drop-shadow-md">
+          <div className="w-full lg:w-[55%] hksdjf">
+            <h1 className="text-[25px] sm:text-4xl lg:text-[42px] font-bold leading-tight md:leading-[1.2] mb-8 text-white drop-shadow-md">
               EuroKids PreSchool & Day Care <br className="hidden md:block" />
               in Sec 86, Summer Palm, Faridabad
             </h1>
@@ -137,7 +137,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative z-0 w-full h-[320px] sm:h-[420px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[50%] overflow-hidden mt-6 lg:mt-0">
+        <div className="relative z-0 w-full h-[320px] sm:h-[420px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[50%] overflow-hidden mt-2 lg:mt-0">
           <Image 
             src="https://www.eurokidsindia.com/citypage2025/assets/images/EK-1pg-Microsite-25yrs-Banners-Dtop-12022026.webp"
             alt="EuroKids Preschool 25 Years Celebration"

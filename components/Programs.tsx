@@ -114,11 +114,11 @@ export default function Programs() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5 max-w-5xl mx-auto">
             {curriculumList.map((item, index) => (
-              <div key={index} className="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-default">
+              <div key={index} className="flex items-start gap-4 p-0 md:p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-default">
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center mt-0.5 shadow-sm border border-teal-200">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <span className="text-gray-800 font-semibold text-[12px] leading-snug">{item}</span>
+                <span className="text-gray-800 font-semibold text-[12px] md:text-[20px] leading-snug">{item}</span>
               </div>
             ))}
           </div>

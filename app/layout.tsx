@@ -7,7 +7,7 @@ import { ModalProvider } from "@/components/ModalContext";
 export const metadata: Metadata = {
   title: "EuroKids Preschool Sector 86, Summer Palm, Faridabad",
   description: "Give your child the Right Start at EuroKids Daycare & Preschool in Sector 86, Greater Faridabad. Programs for 1 to 6 years. Admissions Open! Call 9560096091.",
-  keywords: "EuroKids, Preschool in Faridabad, Daycare Sector 86, Playgroup, Nursery, EuroJunior, EuroSenior, Summer Palm Society",
+  keywords: "EuroKids, Preschool in Faridabad, Daycare Sector 86, Playgroup, Nursery, EuroJunior, EuroSenior, Summer Palm Society, Day Care Sector 86 Faridabad, Preschool in Summer Palm Faridabad, Early childhood education Faridabad, Nursery & Kindergarten Summer Palm, Preschool admissions Faridabad 2026, EuroKids Preschool Sector 86 Faridabad",
   authors: [{ name: "EuroKids Sector 86" }],
   openGraph: {
     title: "EuroKids Preschool & Daycare - Sector 86, Faridabad",

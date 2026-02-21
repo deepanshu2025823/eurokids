@@ -18,3 +18,10 @@ body {
   background-color: #ffffff;
   color: #333333;
 }
+
+@media screen and (max-width: 768px) {
+.hksdjf {
+  position: relative;
+  top: 25px;
+}
+}
