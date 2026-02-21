@@ -31,7 +31,7 @@ const testimonialsData = [
 
 export default function Testimonials() {
   return (
-    <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden border-t border-gray-50">
+    <section className="w-full py-10 md:py-10 bg-white relative overflow-hidden border-t border-gray-50">
       
       <div className="max-w-7xl mx-auto relative z-10 px-4 lg:px-8">
         

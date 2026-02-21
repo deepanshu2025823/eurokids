@@ -51,7 +51,7 @@ const featuresData = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
+    <section className="w-full py-5 md:py-10 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10 px-4 lg:px-8">
         
         <div className="text-center mb-10 md:mb-16 px-2">
