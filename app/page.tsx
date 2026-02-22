@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsBanner from "@/components/StatsBanner";
 // import QuickEnquiryBar from "@/components/QuickEnquiryBar";
+import AboutCentre from "@/components/AboutCentre";
 import Programs from "@/components/Programs";
 import DaycareRoutine from "@/components/DaycareRoutine";
 import WhatsAppConnect from "@/components/WhatsAppConnect";
@@ -25,6 +26,7 @@ export default function Home() {
       <HeroSection />
       <StatsBanner />
       {/* <QuickEnquiryBar /> */}
+      <AboutCentre />
       <Programs />
       <DaycareRoutine />
       <WhatsAppConnect />
