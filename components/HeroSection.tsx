@@ -120,42 +120,18 @@ export default function HeroSection() {
       <section className="relative w-full bg-[#183385] overflow-hidden text-white flex flex-col pt-20">
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-12 lg:py-24 flex flex-col items-start text-left">
           <div className="w-full lg:w-[55%]">
-            <h1 className="text-[25px] sm:text-4xl lg:text-[42px] font-bold leading-tight md:leading-[1.2] mb-8 text-white drop-shadow-md">
+            <h1 className="text-[25px] sm:text-4xl lg:text-[42px] font-bold leading-tight md:leading-[1.2] mb-6 text-white drop-shadow-md">
               EuroKids PreSchool & Day Care <br className="hidden md:block" />
               in Sec 86, Summer Palms, Faridabad
             </h1>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-8 lg:mb-10 w-full">
-              
-              <div className="flex flex-col items-center md:items-start text-center md:text-left group">
-                <div className="bg-white p-3 rounded-xl mb-3 shadow-lg transform transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[#ffb600]/30">
-                  <svg className="w-7 h-7 text-[#1e3a8a]" fill="currentColor" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-                </div>
-                <h3 className="font-bold text-[14px] md:text-[15px] leading-snug">25+ years of<br/><span className="font-normal text-xs md:text-sm text-gray-200">experience</span></h3>
-              </div>
-
-              <div className="flex flex-col items-center md:items-start text-center md:text-left group">
-                <div className="bg-white p-3 rounded-xl mb-3 shadow-lg transform transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[#ffb600]/30">
-                  <svg className="w-7 h-7 text-[#1e3a8a]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h-2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-                </div>
-                <h3 className="font-bold text-[14px] md:text-[15px] leading-snug">2000+ pre-schools<br/><span className="font-normal text-xs md:text-sm text-gray-200">across India</span></h3>
-              </div>
-
-              <div className="flex flex-col items-center md:items-start text-center md:text-left group">
-                <div className="bg-white p-3 rounded-xl mb-3 shadow-lg transform transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[#ffb600]/30">
-                  <svg className="w-7 h-7 text-[#1e3a8a]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
-                </div>
-                <h3 className="font-bold text-[14px] md:text-[15px] leading-snug">100+<br/><span className="font-normal text-xs md:text-sm text-gray-200">awards</span></h3>
-              </div>
-
-              <div className="flex flex-col items-center md:items-start text-center md:text-left group">
-                <div className="bg-white p-3 rounded-xl mb-3 shadow-lg transform transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[#ffb600]/30">
-                  <svg className="w-7 h-7 text-[#1e3a8a]" fill="currentColor" viewBox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
-                </div>
-                <h3 className="font-bold text-[14px] md:text-[15px] leading-snug">550+<br/><span className="font-normal text-xs md:text-sm text-gray-200">cities</span></h3>
-              </div>
-
+            <div className="bg-[#0f215e]/50 border border-white/10 rounded-2xl p-5 md:p-6 mb-8 lg:mb-10 w-full shadow-lg backdrop-blur-sm relative">
+               <div className="absolute -top-3 -left-2 text-[#ffb600] text-3xl">❝</div>
+               <p className="text-gray-200 text-sm md:text-base lg:text-[17px] font-medium leading-relaxed z-10 relative pl-4 border-l-2 border-[#ffb600]">
+                 Inspired by Harvard University's Project Zero, our Heureka curriculum makes children's thinking visible — sparking curiosity, nurturing critical thought, and building lifelong learning habits from 18 months to 12 years.
+               </p>
             </div>
+            {/* -------------------------------------------------------- */}
 
             <div className="border-l-4 border-[#ffb600] pl-3 mb-6">
               <p className="text-gray-200 text-[15px] md:text-lg font-medium tracking-wide drop-shadow-md">
