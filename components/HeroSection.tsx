@@ -3,15 +3,16 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { sendOtpEmail, verifyOtpAction, submitAdmissionForm } from "@/app/actions/admissions";
+
+import { sendMobileOtp, verifyMobileOtpAction, submitAdmissionForm } from "@/app/actions/admissions";
 import { useModal } from "./ModalContext";
 
 export default function HeroSection() {
   const { isModalOpen, openModal, closeModal } = useModal();
   
-  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
   const [otp, setOtp] = useState("");
-  const [hash, setHash] = useState("");
+  const [hash, setHash] = useState(""); 
   const [otpSent, setOtpSent] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -21,70 +22,81 @@ export default function HeroSection() {
     parentName: "",
     childName: "",
     childDob: "",
-    mobile: "",
+    email: "", 
     program: "",
   });
 
-  const handleSendOtp = async () => {
-    if (!email) return alert("Please enter your email first.");
+  const handleSendMobileOtp = async () => {
+    if (!mobile || mobile.length !== 10) return alert("Please enter a valid 10-digit mobile number.");
+    
     setLoading(true);
     setMessage("");
-    const res = await sendOtpEmail(email);
+    
+    const res = await sendMobileOtp(mobile);
+    
     if (res.success) {
       setHash(res.hash || "");
       setOtpSent(true);
-      setMessage("OTP sent to your email!");
+      setMessage(res.message); 
     } else {
       setMessage(res.message);
     }
+    
     setLoading(false);
   };
 
-  const handleVerifyOtp = async () => {
-    if (!otp) return alert("Please enter the OTP.");
+  const handleVerifyMobileOtp = async () => {
+    if (!otp || otp.length !== 6) return alert("Please enter the 6-digit OTP.");
+    
     setLoading(true);
-    const res = await verifyOtpAction(email, otp, hash);
+    const res = await verifyMobileOtpAction(mobile, otp, hash);
+    
     if (res.success) {
       setIsVerified(true);
-      setMessage(res.message || "Email Verified Successfully! Please fill the rest of the form.");
+      setMessage("Mobile Number Verified Successfully! Please complete the form.");
     } else {
-      setMessage(res.message || "Verification failed.");
+      setMessage(res.message || "Verification failed. Please try again.");
     }
     setLoading(false);
   };
 
   const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isVerified) return alert("Please verify email first.");
+    if (!isVerified) return alert("Please verify your mobile number first.");
     
     setLoading(true);
-    const dataToSubmit = { ...formData, email };
+    const dataToSubmit = { ...formData, mobile };
     const res = await submitAdmissionForm(dataToSubmit);
     
     if (res.success) {
       alert("Form Submitted Successfully! We will contact you soon.");
       
-      const waText = `Hello EuroKids,%0A%0AI have submitted an admission enquiry.%0A*Parent Name:* ${formData.parentName}%0A*Child Name:* ${formData.childName}%0A*Date of Birth:* ${formData.childDob}%0A*Program:* ${formData.program}%0A*Mobile:* ${formData.mobile}%0A*Email:* ${email}`;
+      const waText = `Hello EuroKids,%0A%0AI have submitted an admission enquiry.%0A*Parent Name:* ${formData.parentName}%0A*Child Name:* ${formData.childName}%0A*Date of Birth:* ${formData.childDob}%0A*Program:* ${formData.program}%0A*Mobile:* ${mobile}%0A*Email:* ${formData.email || 'N/A'}`;
       window.open(`https://wa.me/919958313631?text=${waText}`, '_blank');
 
-      closeModal(); 
-      setIsVerified(false);
-      setOtpSent(false);
-      setFormData({ parentName: "", childName: "", childDob: "", mobile: "", program: "" });
-      setEmail("");
-      setOtp("");
-      setMessage("");
+      handleClose();
     } else {
       alert("Something went wrong. Please try again.");
     }
     setLoading(false);
   };
 
+  const handleClose = () => {
+    closeModal();
+    setIsVerified(false);
+    setOtpSent(false);
+    setMobile("");
+    setOtp("");
+    setMessage("");
+    setHash("");
+    setFormData({ parentName: "", childName: "", childDob: "", email: "", program: "" });
+  };
+
   return (
     <>
       <section className="relative w-full bg-[#183385] overflow-hidden text-white flex flex-col pt-20">
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-12 lg:py-24 flex flex-col items-start text-left">
-          <div className="w-full lg:w-[55%] hksdjf">
+          <div className="w-full lg:w-[55%]">
             <h1 className="text-[25px] sm:text-4xl lg:text-[42px] font-bold leading-tight md:leading-[1.2] mb-8 text-white drop-shadow-md">
               EuroKids PreSchool & Day Care <br className="hidden md:block" />
               in Sec 86, Summer Palm, Faridabad
@@ -158,30 +170,39 @@ export default function HeroSection() {
             
             <div className="bg-[#183385] p-5 text-white flex justify-between items-center">
               <h2 className="text-xl font-bold">Admissions Enquiry</h2>
-              <button onClick={closeModal} className="text-white hover:text-gray-300 font-bold text-2xl leading-none">&times;</button>
+              <button onClick={handleClose} className="text-white hover:text-gray-300 font-bold text-2xl leading-none">&times;</button>
             </div>
 
             <div className="p-6 max-h-[80vh] overflow-y-auto">
-              {message && <p className="mb-4 text-sm font-semibold text-center p-2 rounded bg-blue-50 text-blue-800 border border-blue-200">{message}</p>}
+              
+              {message && (
+                <p className={`mb-4 text-sm font-semibold text-center p-2 rounded border ${message.includes('Verified') || message.includes('successfully') ? 'bg-green-50 text-green-800 border-green-200' : 'bg-blue-50 text-blue-800 border-blue-200'}`}>
+                  {message}
+                </p>
+              )}
 
               <div className="mb-6 p-4 border border-gray-200 rounded-xl bg-gray-50">
-                <label className="block text-sm font-bold text-gray-700 mb-2">E-mail Address <span className="text-red-500">*</span></label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Mobile Number <span className="text-red-500">*</span></label>
                 <div className="flex gap-2">
+                  <div className="flex items-center bg-gray-200 border border-gray-300 px-3 rounded-md text-gray-600 font-medium">
+                    +91
+                  </div>
                   <input 
-                    type="email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="tel" 
+                    maxLength={10}
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value.replace(/\D/g, ''))} // only numbers
                     disabled={isVerified}
-                    placeholder="Enter your email" 
+                    placeholder="10-digit mobile number" 
                     className="w-full px-4 py-2 border rounded-md text-black focus:ring-2 focus:ring-[#183385] outline-none disabled:bg-gray-200"
                   />
                   {!isVerified && (
                     <button 
-                      onClick={handleSendOtp} 
-                      disabled={loading}
-                      className="bg-[#183385] text-white px-4 py-2 rounded-md font-bold whitespace-nowrap hover:bg-[#0f215e]"
+                      onClick={handleSendMobileOtp} 
+                      disabled={loading || mobile.length !== 10}
+                      className="bg-[#183385] text-white px-4 py-2 rounded-md font-bold whitespace-nowrap hover:bg-[#0f215e] disabled:bg-gray-400 transition-colors"
                     >
-                      {loading ? "..." : (otpSent ? "Resend" : "Send OTP")}
+                      {loading ? "Wait..." : (otpSent ? "Resend" : "Send OTP")}
                     </button>
                   )}
                 </div>
@@ -192,14 +213,14 @@ export default function HeroSection() {
                       type="text" 
                       maxLength={6}
                       value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
+                      onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
                       placeholder="Enter 6-digit OTP" 
-                      className="w-full px-4 py-2 border rounded-md text-black focus:ring-2 focus:ring-green-500 outline-none"
+                      className="w-full px-4 py-2 border rounded-md text-black focus:ring-2 focus:ring-green-500 outline-none font-bold tracking-widest text-center"
                     />
                     <button 
-                      onClick={handleVerifyOtp}
-                      disabled={loading}
-                      className="bg-green-600 text-white px-4 py-2 rounded-md font-bold hover:bg-green-700 whitespace-nowrap"
+                      onClick={handleVerifyMobileOtp}
+                      disabled={loading || otp.length !== 6}
+                      className="bg-green-600 text-white px-6 py-2 rounded-md font-bold hover:bg-green-700 whitespace-nowrap disabled:bg-gray-400 transition-colors"
                     >
                       {loading ? "..." : "Verify"}
                     </button>
@@ -209,7 +230,7 @@ export default function HeroSection() {
                 {isVerified && (
                   <p className="text-green-600 font-bold mt-2 text-sm flex items-center gap-1">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
-                    Email Verified
+                    Mobile Number Verified
                   </p>
                 )}
               </div>
@@ -232,8 +253,8 @@ export default function HeroSection() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-1">Mobile Number <span className="text-red-500">*</span></label>
-                  <input required type="tel" maxLength={10} value={formData.mobile} onChange={(e) => setFormData({...formData, mobile: e.target.value})} placeholder="9958313631" className="w-full px-4 py-2 border rounded-md text-black focus:ring-2 focus:ring-[#183385] outline-none" />
+                  <label className="block text-sm font-bold text-gray-700 mb-1">E-mail Address <span className="text-gray-400 font-normal ml-1">(Optional)</span></label>
+                  <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="yourname@example.com" className="w-full px-4 py-2 border rounded-md text-black focus:ring-2 focus:ring-[#183385] outline-none" />
                 </div>
 
                 <div>
