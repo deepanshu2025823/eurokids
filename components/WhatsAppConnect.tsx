@@ -52,7 +52,7 @@ export default function WhatsAppConnect() {
     
     const waText = `Hello EuroKids Sector 86,%0A%0AI want to connect regarding *${selectedTopic}*.%0A%0A*Parent Name:* ${parentName}%0A*Mobile:* ${mobile}%0A*Additional Message:* ${message || 'N/A'}`;
     
-    window.open(`https://wa.me/919958313631?text=${waText}`, '_blank');
+    window.open(`https://wa.me/919560096091?text=${waText}`, '_blank');
     
     closePopup();
   };
