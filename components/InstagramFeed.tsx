@@ -47,7 +47,8 @@ export default function InstagramFeed() {
       
       <div className="absolute top-0 left-0 w-full h-16 bg-white" style={{borderRadius: '0 0 50% 50% / 0 0 100% 100%', transform: 'scaleX(1.5)'}}></div>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-4 lg:px-8 mt-10">
+      {/* Changed max-w-7xl to max-w-[1400px] to give enough space for 4 columns on laptops */}
+      <div className="max-w-[1400px] mx-auto relative z-10 px-4 lg:px-8 mt-10">
         
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-[#183385] text-[26px] sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold flex flex-wrap items-center justify-center gap-3 leading-snug">
@@ -61,7 +62,8 @@ export default function InstagramFeed() {
           </p>
         </div>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 pb-8 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+        {/* Removed lg:grid-cols-3 and xl:grid-cols-4, replaced strictly with lg:grid-cols-4 */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pb-8 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
           
           {isVisible ? reelLinks.map((url, index) => (
             <div 
