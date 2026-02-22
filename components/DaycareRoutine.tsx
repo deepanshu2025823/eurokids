@@ -43,7 +43,7 @@ const routineSteps = [
 
 export default function DaycareRoutine() {
   return (
-    <section className="w-full py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-white via-white to-blue-50/50">
+    <section className="w-full py-5 md:py-10 relative overflow-hidden bg-gradient-to-br from-white via-white to-blue-50/50">
       
       <div className="absolute top-0 right-0 w-[40%] h-full bg-[#f4f8fccb] -skew-x-12 transform origin-top hidden lg:block z-0"></div>
 

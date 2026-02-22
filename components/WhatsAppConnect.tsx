@@ -58,7 +58,7 @@ export default function WhatsAppConnect() {
   };
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white relative">
+    <section className="w-full py-5 md:py-10 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
         <div className="text-center mb-12">
