@@ -68,7 +68,7 @@ export default function AboutCentre() {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
           
           <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0 px-6 sm:px-10 lg:px-0">
-            <div className="relative w-full aspect-square max-w-[500px] mx-auto rounded-[32px] overflow-hidden shadow-2xl">
+            <div className="relative w-full aspect-square max-w-[900px] mx-auto rounded-[32px] overflow-hidden shadow-2xl">
               <Image 
                 src="https://www.feesback.org/img/PreSchool/2902f464-6307-4eb1-bdfd-4395c2f860e8.jpg" 
                 alt="EuroKids Sector 86 Faridabad Toys and Activities"
@@ -101,7 +101,7 @@ export default function AboutCentre() {
               <span className="text-[#ec008c]">📍</span> ABOUT OUR CENTRE
             </div>
 
-            <h2 className="text-[#183385] text-[32px] sm:text-4xl lg:text-[42px] font-extrabold mb-6 leading-[1.15] tracking-tight">
+            <h2 className="text-[#183385] text-[24px] sm:text-4xl lg:text-[42px] font-extrabold mb-6 leading-[1.15] tracking-tight">
               Faridabad's Most Trusted <span className="text-[#1d6ade]">Preschool, Daycare & Activity Center</span>
             </h2>
 
