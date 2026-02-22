@@ -43,7 +43,7 @@ export default function InstagramFeed() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-16 md:py-24 bg-[#f8fafc] relative overflow-hidden">
+    <section ref={sectionRef} className="w-full py-5 md:py-10 bg-[#f8fafc] relative overflow-hidden">
       
       <div className="absolute top-0 left-0 w-full h-16 bg-white" style={{borderRadius: '0 0 50% 50% / 0 0 100% 100%', transform: 'scaleX(1.5)'}}></div>
 
