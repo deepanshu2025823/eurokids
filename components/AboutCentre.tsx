@@ -70,7 +70,7 @@ export default function AboutCentre() {
           <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0 px-6 sm:px-10 lg:px-0">
             <div className="relative w-full aspect-square max-w-[500px] mx-auto rounded-[32px] overflow-hidden shadow-2xl">
               <Image 
-                src="https://images.unsplash.com/photo-1566231145627-2c13e51f8a7e?q=80&w=1000&auto=format&fit=crop" 
+                src="https://www.feesback.org/img/PreSchool/2902f464-6307-4eb1-bdfd-4395c2f860e8.jpg" 
                 alt="EuroKids Sector 86 Faridabad Toys and Activities"
                 fill
                 className="object-cover"
