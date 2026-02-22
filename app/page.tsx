@@ -10,6 +10,8 @@ import WhatsAppConnect from "@/components/WhatsAppConnect";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
+import CtaBanner from "@/components/CtaBanner";
 import LocationContact from "@/components/LocationContact";
 import InstagramFeed from "@/components/InstagramFeed";
 import BottomNav from "@/components/BottomNav"; 
@@ -28,6 +30,8 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <Testimonials />
+      <FAQ />
+      <CtaBanner />
       <LocationContact />
       <InstagramFeed />
       
