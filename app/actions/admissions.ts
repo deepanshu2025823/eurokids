@@ -21,7 +21,8 @@ export async function sendMobileOtp(mobile: string) {
     if(!apiKey) return { success: false, message: "SMS API Key missing in backend." };
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    const message = `Dear Parent, your OTP for EuroKids Sector 86 Admission Enquiry is ${otp}. Please do not share this with anyone.`;
+    
+    const message = `EuroKids Sector 86: Your admission verification PIN is ${otp}. Please enter this to proceed.`;
     
     const response = await fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=${apiKey}&route=q&message=${encodeURIComponent(message)}&language=english&flash=0&numbers=${mobile}`, {
       method: 'GET'
@@ -31,30 +32,21 @@ export async function sendMobileOtp(mobile: string) {
 
     if(data.return) {
       const hash = crypto.createHash('sha256').update(otp + mobile + process.env.SMTP_PASS).digest('hex');
-      return { success: true, hash, message: "OTP sent successfully to your mobile via SMS!" };
+      return { success: true, hash, message: "Verification code sent successfully to your mobile!" };
     } else {
       console.error("Fast2SMS API Error Response:", data);
       
       if (data.status_code === 999) {
-        console.log(`\n\n========================================`);
-        console.log(`🔔 [TEST MODE] FAST2SMS NEEDS ₹100 RECHARGE`);
-        console.log(`📱 Mobile Number: ${mobile}`);
-        console.log(`🔑 YOUR OTP IS: ${otp}`);
-        console.log(`========================================\n\n`);
-
+        console.log(`\n\n🔔 [TEST MODE] FAST2SMS NEEDS ₹100 RECHARGE. PIN: ${otp}\n\n`);
         const hash = crypto.createHash('sha256').update(otp + mobile + process.env.SMTP_PASS).digest('hex');
-        return { 
-          success: true, 
-          hash, 
-          message: "API needs ₹100 Recharge. Check VS Code Terminal for your OTP!" 
-        };
+        return { success: true, hash, message: "API needs ₹100 Recharge. Check Terminal for PIN!" };
       }
 
-      return { success: false, message: "Failed to send OTP. SMS Gateway error." };
+      return { success: false, message: data.message || "Failed to send code. SMS Gateway error." };
     }
   } catch (error) {
-    console.error("OTP send failed", error);
-    return { success: false, message: "Server error while sending OTP." };
+    console.error("PIN send failed", error);
+    return { success: false, message: "Server error while sending PIN." };
   }
 }
 
@@ -63,7 +55,7 @@ export async function verifyMobileOtpAction(mobile: string, otp: string, hash: s
   if (computedHash === hash) {
     return { success: true };
   }
-  return { success: false, message: "Invalid OTP. Please check and try again." };
+  return { success: false, message: "Invalid PIN. Please check and try again." };
 }
 
 async function sendThankYouSMS(mobile: string, childName: string) {
@@ -81,10 +73,8 @@ async function sendThankYouSMS(mobile: string, childName: string) {
     
     if(data.return) {
         console.log(`✅ Thank You SMS sent successfully to ${mobile}`);
-    } else if(data.status_code === 999) {
-       console.log(`\n🔔 [TEST MODE] SMS that would have been sent: "${message}"\n`);
     } else {
-       console.error("❌ Thank You SMS failed:", data);
+        console.error("❌ Thank You SMS failed:", data);
     }
 
   } catch (error) {
@@ -105,7 +95,7 @@ export async function submitAdmissionForm(formData: any) {
           <tr><td><strong>Parent's Name</strong></td><td>${formData.parentName}</td></tr>
           <tr><td><strong>Child's Name</strong></td><td>${formData.childName}</td></tr>
           <tr><td><strong>Child's Date of Birth</strong></td><td>${formData.childDob}</td></tr>
-          <tr><td><strong>Mobile Number</strong></td><td>${formData.mobile} (Verified via SMS OTP)</td></tr>
+          <tr><td><strong>Mobile Number</strong></td><td>${formData.mobile} (Verified via SMS PIN)</td></tr>
           <tr><td><strong>Email</strong></td><td>${formData.email || 'Not Provided'}</td></tr>
           <tr><td><strong>Selected Program</strong></td><td>${formData.program}</td></tr>
         </table>

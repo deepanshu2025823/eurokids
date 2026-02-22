@@ -2,7 +2,11 @@
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import StatsBanner from "@/components/StatsBanner";
+import QuickEnquiryBar from "@/components/QuickEnquiryBar";
 import Programs from "@/components/Programs";
+import DaycareRoutine from "@/components/DaycareRoutine";
+import WhatsAppConnect from "@/components/WhatsAppConnect";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
@@ -15,9 +19,12 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between w-full pb-20 md:pb-0 relative">
       
       <Header />
-
       <HeroSection />
+      <StatsBanner />
+      <QuickEnquiryBar />
       <Programs />
+      <DaycareRoutine />
+      <WhatsAppConnect />
       <Services />
       <WhyChooseUs />
       <Testimonials />
