@@ -92,7 +92,7 @@ export default function Programs() {
   };
 
   return (
-    <section className="w-full py-16 md:py-24 px-4 lg:px-8 bg-gradient-to-b from-[#f8fafc] to-white relative overflow-hidden">
+    <section className="w-full py-5 md:py-10 px-4 lg:px-8 bg-gradient-to-b from-[#f8fafc] to-white relative overflow-hidden">
       
       <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply blur-2xl opacity-60"></div>
       <div className="absolute bottom-40 right-10 w-40 h-40 bg-pink-100 rounded-full mix-blend-multiply blur-2xl opacity-60"></div>
