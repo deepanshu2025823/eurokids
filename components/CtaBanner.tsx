@@ -8,8 +8,10 @@ export default function CtaBanner() {
 
   const [formData, setFormData] = useState({
     parentName: "",
+    childName: "",
     phone: "",
     childAge: "",
+    program: "Playgroup", 
     daycare: "No",
     daycareDetails: "", 
   });
@@ -26,8 +28,10 @@ export default function CtaBanner() {
 
     let message = `*New Admission Enquiry*\n\n`;
     message += `*Parent's Name:* ${formData.parentName}\n`;
+    message += `*Child's Name:* ${formData.childName}\n`;
     message += `*Phone:* ${formData.phone}\n`;
     message += `*Child's Age:* ${formData.childAge}\n`;
+    message += `*Interested Program:* ${formData.program}\n`;
     message += `*Need Daycare:* ${formData.daycare}\n`;
     
     if (formData.daycare === "Yes") {
@@ -39,7 +43,15 @@ export default function CtaBanner() {
     window.open(whatsappUrl, "_blank");
 
     setIsModalOpen(false);
-    setFormData({ parentName: "", phone: "", childAge: "", daycare: "No", daycareDetails: "" });
+    setFormData({ 
+      parentName: "", 
+      childName: "", 
+      phone: "", 
+      childAge: "", 
+      program: "Playgroup", 
+      daycare: "No", 
+      daycareDetails: "" 
+    });
   };
 
   return (
@@ -75,8 +87,8 @@ export default function CtaBanner() {
       </section>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
-          <div className="bg-white w-full max-w-md rounded-2xl p-6 md:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4 py-4 sm:py-0 overflow-y-auto">
+          <div className="bg-white w-full max-w-md rounded-2xl p-6 md:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200 my-auto">
             
             <button
               onClick={() => setIsModalOpen(false)}
@@ -89,7 +101,7 @@ export default function CtaBanner() {
 
             <h3 className="text-2xl font-bold text-[#185bc3] mb-6 text-center">Enquire Now</h3>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-h-[75vh] sm:max-h-full overflow-y-auto pr-1">
               
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Parent's Name</label>
@@ -100,7 +112,20 @@ export default function CtaBanner() {
                   value={formData.parentName}
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#185bc3] focus:border-transparent transition-all"
-                  placeholder="Enter your name"
+                  placeholder="Enter parent's name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Child's Name</label>
+                <input
+                  type="text"
+                  name="childName"
+                  required
+                  value={formData.childName}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#185bc3] focus:border-transparent transition-all"
+                  placeholder="Enter child's name"
                 />
               </div>
 
@@ -117,17 +142,35 @@ export default function CtaBanner() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Child's Age</label>
-                <input
-                  type="text"
-                  name="childAge"
-                  required
-                  value={formData.childAge}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#185bc3] focus:border-transparent transition-all"
-                  placeholder="e.g., 3 years"
-                />
+              <div className="flex gap-4">
+                <div className="w-1/2">
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Child's Age</label>
+                  <input
+                    type="text"
+                    name="childAge"
+                    required
+                    value={formData.childAge}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#185bc3] focus:border-transparent transition-all"
+                    placeholder="e.g., 3 years"
+                  />
+                </div>
+
+                <div className="w-1/2">
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Program</label>
+                  <select
+                    name="program"
+                    value={formData.program}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#185bc3] focus:border-transparent bg-white transition-all cursor-pointer"
+                  >
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="EuroJunior (LKG)">EuroJunior (LKG)</option>
+                    <option value="EuroSenior (UKG)">EuroSenior (UKG)</option>
+                    <option value="Daycare Only">Daycare Only</option>
+                  </select>
+                </div>
               </div>
 
               <div>
