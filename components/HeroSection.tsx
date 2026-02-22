@@ -2,14 +2,22 @@
 
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { sendMobileOtp, verifyMobileOtpAction, submitAdmissionForm } from "@/app/actions/admissions";
 import { useModal } from "./ModalContext";
 
+const heroBanners = [
+  "https://www.eurokidsindia.com/citypage2025/assets/images/EK-1pg-Microsite-25yrs-Banners-Dtop-12022026.webp",
+  "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", 
+  "https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+];
+
 export default function HeroSection() {
   const { isModalOpen, openModal, closeModal } = useModal();
   
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const [mobile, setMobile] = useState("");
   const [otp, setOtp] = useState("");
   const [hash, setHash] = useState(""); 
@@ -25,6 +33,21 @@ export default function HeroSection() {
     email: "", 
     program: "",
   });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === heroBanners.length - 1 ? 0 : prev + 1));
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === heroBanners.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? heroBanners.length - 1 : prev - 1));
+  };
 
   const handleSendMobileOtp = async () => {
     if (!mobile || mobile.length !== 10) return alert("Please enter a valid 10-digit mobile number.");
@@ -113,7 +136,7 @@ export default function HeroSection() {
 
               <div className="flex flex-col items-center md:items-start text-center md:text-left group">
                 <div className="bg-white p-3 rounded-xl mb-3 shadow-lg transform transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[#ffb600]/30">
-                  <svg className="w-7 h-7 text-[#1e3a8a]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                  <svg className="w-7 h-7 text-[#1e3a8a]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h-2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
                 </div>
                 <h3 className="font-bold text-[14px] md:text-[15px] leading-snug">2000+ pre-schools<br/><span className="font-normal text-xs md:text-sm text-gray-200">across India</span></h3>
               </div>
@@ -150,17 +173,59 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative z-0 w-full h-[320px] sm:h-[420px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[50%] overflow-hidden mt-2 lg:mt-0">
-          <Image 
-            src="https://www.eurokidsindia.com/citypage2025/assets/images/EK-1pg-Microsite-25yrs-Banners-Dtop-12022026.webp"
-            alt="EuroKids Preschool 25 Years Celebration"
-            fill
-            priority
-            className="object-cover object-[90%_top] md:object-right lg:object-[80%_center]"
-            quality={90}
-          />
-          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#183385] via-[#183385]/70 to-transparent w-[35%]"></div>
-          <div className="block lg:hidden absolute inset-0 bg-gradient-to-b from-[#183385] via-[#183385]/70 to-transparent h-[35%]"></div>
+        <div className="relative z-0 w-full h-[320px] sm:h-[420px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[50%] overflow-hidden mt-2 lg:mt-0 group">
+          
+          {heroBanners.map((banner, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
+              <Image 
+                src={banner}
+                alt={`EuroKids Sector 86 Banner ${index + 1}`}
+                fill
+                priority={index === 0} 
+                unoptimized 
+                className="object-cover object-[90%_top] md:object-right lg:object-[80%_center]"
+                quality={90}
+              />
+            </div>
+          ))}
+
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#183385] via-[#183385]/70 to-transparent w-[35%] z-20 pointer-events-none"></div>
+          <div className="block lg:hidden absolute inset-0 bg-gradient-to-b from-[#183385] via-[#183385]/70 to-transparent h-[35%] z-20 pointer-events-none"></div>
+
+          <button 
+            onClick={prevSlide}
+            className="absolute left-4 lg:left-[30%] top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-[#E1306C] text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+            aria-label="Previous Slide"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          
+          <button 
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/30 hover:bg-[#E1306C] text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+            aria-label="Next Slide"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+          </button>
+
+          <div className="absolute bottom-5 left-1/2 lg:left-[65%] -translate-x-1/2 z-30 flex gap-2.5">
+            {heroBanners.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  index === currentSlide ? "bg-[#ffb600] w-8" : "bg-white/60 hover:bg-white w-2.5"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -191,7 +256,7 @@ export default function HeroSection() {
                     type="tel" 
                     maxLength={10}
                     value={mobile}
-                    onChange={(e) => setMobile(e.target.value.replace(/\D/g, ''))} // only numbers
+                    onChange={(e) => setMobile(e.target.value.replace(/\D/g, ''))} 
                     disabled={isVerified}
                     placeholder="10-digit mobile number" 
                     className="w-full px-4 py-2 border rounded-md text-black focus:ring-2 focus:ring-[#183385] outline-none disabled:bg-gray-200"
