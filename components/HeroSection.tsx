@@ -122,7 +122,7 @@ export default function HeroSection() {
           <div className="w-full lg:w-[55%]">
             <h1 className="text-[25px] sm:text-4xl lg:text-[42px] font-bold leading-tight md:leading-[1.2] mb-8 text-white drop-shadow-md">
               EuroKids PreSchool & Day Care <br className="hidden md:block" />
-              in Sec 86, Summer Palm, Faridabad
+              in Sec 86, Summer Palms, Faridabad
             </h1>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-8 lg:mb-10 w-full">
