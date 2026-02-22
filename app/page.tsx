@@ -14,6 +14,7 @@ import FAQ from "@/components/FAQ";
 import CtaBanner from "@/components/CtaBanner";
 import LocationContact from "@/components/LocationContact";
 import InstagramFeed from "@/components/InstagramFeed";
+import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav"; 
 
 export default function Home() {
@@ -34,12 +35,7 @@ export default function Home() {
       <CtaBanner />
       <LocationContact />
       <InstagramFeed />
-      
-      <footer className="w-full bg-[#111827] text-gray-400 py-8 text-center text-sm border-t border-[#1f2937]">
-        <p className="font-medium text-gray-300">© {new Date().getFullYear()} EuroKids Daycare, Preschool & Activity Centre. Sector 86, Faridabad.</p>
-        <p className="mt-2 text-xs opacity-70">Designed & Developed By Deepanshu Joshi.</p>
-      </footer>
-
+      <Footer />
       <BottomNav />
       
     </main>
