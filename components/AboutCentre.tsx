@@ -14,7 +14,7 @@ const features = [
     bgColor: "bg-gray-200/50"
   },
   {
-    name: "ECCED Certified Staff",
+    name: "Certified Staff",
     icon: (
       <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -110,7 +110,7 @@ export default function AboutCentre() {
             </p>
 
             <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed mb-10 font-medium">
-              We go beyond traditional learning with <strong>Heureka</strong> — a visible thinking curriculum inspired by Harvard's Project Zero. With CCTV surveillance, ECCED-certified teachers, daily hygiene protocols, and an open-door parent policy, we are the most trusted childcare provider near Sector 86, Faridabad.
+              We go beyond traditional learning with <strong>Heureka</strong> — a visible thinking curriculum inspired by Harvard's Project Zero. With CCTV surveillance, certified teachers, daily hygiene protocols, and an open-door parent policy, we are the most trusted childcare provider near Sector 86, Faridabad.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
