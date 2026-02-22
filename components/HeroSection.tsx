@@ -128,10 +128,9 @@ export default function HeroSection() {
             <div className="bg-[#0f215e]/50 border border-white/10 rounded-2xl p-5 md:p-6 mb-8 lg:mb-10 w-full shadow-lg backdrop-blur-sm relative">
                <div className="absolute -top-3 -left-2 text-[#ffb600] text-3xl">❝</div>
                <p className="text-gray-200 text-sm md:text-base lg:text-[17px] font-medium leading-relaxed z-10 relative pl-4 border-l-2 border-[#ffb600]">
-                 Inspired by Harvard University's Project Zero, our Heureka curriculum makes children's thinking visible — sparking curiosity, nurturing critical thought, and building lifelong learning habits from 18 months to 12 years.
+                 Inspired by Harvard University's Project Zero, our Heureka curriculum makes children's thinking visible — sparking curiosity, nurturing critical thought, and building lifelong learning habits.
                </p>
             </div>
-            {/* -------------------------------------------------------- */}
 
             <div className="border-l-4 border-[#ffb600] pl-3 mb-6">
               <p className="text-gray-200 text-[15px] md:text-lg font-medium tracking-wide drop-shadow-md">
