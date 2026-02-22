@@ -110,7 +110,7 @@ export default function AboutCentre() {
             </p>
 
             <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed mb-10 font-medium">
-              We go beyond traditional learning with <strong>Heureka</strong> — a visible thinking curriculum inspired by Harvard's Project Zero. With CCTV surveillance, certified teachers, daily hygiene protocols, and an open-door parent policy, we are the most trusted childcare provider near Sector 86, Faridabad.
+              We go beyond traditional learning with <strong>Heureka</strong> — a visible thinking curriculum inspired by Harvard's Project Zero. With CCTV surveillance, trained teachers, daily hygiene protocols, and an open-door parent policy, we are the most trusted childcare provider near Sector 86, Faridabad.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
