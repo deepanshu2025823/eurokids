@@ -9,7 +9,7 @@ import Programs from "@/components/Programs";
 import DaycareRoutine from "@/components/DaycareRoutine";
 import WhatsAppConnect from "@/components/WhatsAppConnect";
 import Services from "@/components/Services";
-import WhyChooseUs from "@/components/WhyChooseUs";
+// import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CtaBanner from "@/components/CtaBanner";
@@ -31,7 +31,7 @@ export default function Home() {
       <DaycareRoutine />
       <WhatsAppConnect />
       <Services />
-      <WhyChooseUs />
+      {/* <WhyChooseUs /> */}
       <Testimonials />
       <FAQ />
       <CtaBanner />
