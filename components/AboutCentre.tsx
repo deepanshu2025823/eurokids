@@ -101,7 +101,7 @@ export default function AboutCentre() {
               <span className="text-[#ec008c]">📍</span> ABOUT OUR CENTRE
             </div>
 
-            <h2 className="text-[#183385] text-[24px] sm:text-4xl lg:text-[42px] font-extrabold mb-6 leading-[1.15] tracking-tight">
+            <h2 className="text-[#183385] text-[24px] sm:text-3xl lg:text-[30px] font-extrabold mb-6 leading-[1.15] tracking-tight">
               Faridabad's Most Trusted <span className="text-[#1d6ade]">Preschool, Daycare & Activity Center</span>
             </h2>
 
@@ -113,7 +113,7 @@ export default function AboutCentre() {
               We go beyond traditional learning with <strong>Heureka</strong> — a visible thinking curriculum inspired by Harvard's Project Zero. With CCTV surveillance, trained teachers, daily hygiene protocols, and an open-door parent policy, we are the most trusted childcare provider near Sector 86, Faridabad.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-2 w-full">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-4 bg-gray-50 border border-gray-100 rounded-[14px] p-3 hover:bg-white hover:shadow-md transition-all duration-300">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${feature.bgColor}`}>

@@ -11,7 +11,7 @@ const stats = [
 
 export default function StatsBanner() {
   return (
-    <section className="w-full bg-[#1352a1] py-8 md:py-12 border-y border-[#0f4386]">
+    <section className="w-full bg-[#1352a1] py-4 md:py-4 border-y border-[#0f4386]">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4">
           
