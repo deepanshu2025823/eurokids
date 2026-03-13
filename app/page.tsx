@@ -3,7 +3,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsBanner from "@/components/StatsBanner";
-// import QuickEnquiryBar from "@/components/QuickEnquiryBar";
+import QuickEnquiryBar from "@/components/QuickEnquiryBar";
 import AboutCentre from "@/components/AboutCentre";
 import Programs from "@/components/Programs";
 import DaycareRoutine from "@/components/DaycareRoutine";
@@ -25,7 +25,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       <StatsBanner />
-      {/* <QuickEnquiryBar /> */}
+      <QuickEnquiryBar />
       <AboutCentre />
       <Programs />
       <DaycareRoutine />
