@@ -9,8 +9,14 @@ import { useModal } from "./ModalContext";
 
 const heroBanners = [
   "https://www.eurokidsindia.com/citypage2025/assets/images/EK-1pg-Microsite-25yrs-Banners-Dtop-12022026.webp",
-  "https://images.jdmagicbox.com/v2/comp/hyderabad/d7/040pxx40.xx40.200318220431.d5d7/catalogue/eurokids-preschool-wipro-circle-gachibowli-hyderabad-eurokids-67fo3ssg71.jpg", 
-  "https://www.feesback.org/img/PreSchool/2902f464-6307-4eb1-bdfd-4395c2f860e8.jpg" 
+  "/slider/01.jpeg",
+  "/slider/02.jpeg",
+  "/slider/03.jpeg",
+  "/slider/04.jpeg",
+  "/slider/05.jpeg",
+  "/slider/06.jpeg", 
+  "/slider/07.jpeg",
+  "/slider/08.jpeg"
 ];
 
 export default function HeroSection() {
