@@ -10,6 +10,7 @@ import DayCare from "@/components/Daycare";
 import DaycareRoutine from "@/components/DaycareRoutine";
 // import WhatsAppConnect from "@/components/WhatsAppConnect";
 import AfterSchool from "@/components/AfterSchool";
+import Schedule from "@/components/Schedule";
 import Services from "@/components/Services";
 // import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
@@ -34,6 +35,7 @@ export default function Home() {
       <DaycareRoutine />
       {/* <WhatsAppConnect /> */}
       <AfterSchool />
+      <Schedule />
       <Services />
       {/* <WhyChooseUs /> */}
       <Testimonials />
