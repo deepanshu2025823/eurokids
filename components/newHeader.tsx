@@ -31,7 +31,6 @@ export default function Header() {
     { name: "After-School", href: "#after-school" },
     { name: "Reviews", href: "#reviews" },
     { name: "FAQ", href: "#faq" },
-    { name: "Blog", href: "#blog" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -107,7 +106,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       <div
         className={`lg:hidden transition-all duration-300 ease-in-out bg-white overflow-hidden ${
           isMenuOpen ? "max-h-screen opacity-100 border-t border-gray-200" : "max-h-0 opacity-0"
