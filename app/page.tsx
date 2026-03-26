@@ -1,6 +1,6 @@
 // app/page.tsx
 
-import Header from "@/components/Header";
+import NewHeader from "@/components/newHeader";
 import HeroSection from "@/components/HeroSection";
 import StatsBanner from "@/components/StatsBanner";
 import QuickEnquiryBar from "@/components/QuickEnquiryBar";
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between w-full pb-20 md:pb-0 relative">
       
-      <Header />
+      <NewHeader />
       <HeroSection />
       <StatsBanner />
       <QuickEnquiryBar />
