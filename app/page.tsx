@@ -6,8 +6,10 @@ import StatsBanner from "@/components/StatsBanner";
 import QuickEnquiryBar from "@/components/QuickEnquiryBar";
 import AboutCentre from "@/components/AboutCentre";
 import Programs from "@/components/Programs";
+import DayCare from "@/components/Daycare";
 import DaycareRoutine from "@/components/DaycareRoutine";
-import WhatsAppConnect from "@/components/WhatsAppConnect";
+// import WhatsAppConnect from "@/components/WhatsAppConnect";
+import AfterSchool from "@/components/AfterSchool";
 import Services from "@/components/Services";
 // import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
@@ -28,8 +30,10 @@ export default function Home() {
       <QuickEnquiryBar />
       <AboutCentre />
       <Programs />
+      <DayCare />
       <DaycareRoutine />
-      <WhatsAppConnect />
+      {/* <WhatsAppConnect /> */}
+      <AfterSchool />
       <Services />
       {/* <WhyChooseUs /> */}
       <Testimonials />
