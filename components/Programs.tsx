@@ -127,7 +127,7 @@ export default function Programs() {
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 text-[#0b4b8a] text-sm font-bold tracking-wide mb-4 uppercase">
-            <span>📚</span> OUR PROGRAMS
+            OUR PROGRAMS
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6">
             Programs for <span className="text-[#0b4b8a]">Every Stage</span> of Childhood

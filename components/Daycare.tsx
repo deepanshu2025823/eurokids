@@ -63,19 +63,19 @@ export default function Daycare() {
   ];
 
   return (
-    <section id="daycare" className="py-20 bg-[#fff]">
+    <section id="daycare" className="py-10 bg-[#fff]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-12 items-center">
           
           <div className="w-full lg:w-[55%] flex flex-col">
             
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#dce5f0] text-[#0b4b8a] text-xs font-bold tracking-widest mb-6 uppercase w-fit">
-              <span className="text-[#d97706]">🧸</span> FULL-DAY DAYCARE
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#dce5f0] text-[#0b4b8a] text-xs font-bold tracking-widest mb-4 uppercase w-fit">
+              FULL-DAY DAYCARE
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
-              Trusted Daycare in Sector 86, <br/>
-              <span className="text-[#0b4b8a]">Faridabad</span>
+            <h2 className="text-3xl md:text-3xl font-extrabold text-gray-900 leading-tight mb-4">
+              Trusted Daycare in Sector 86,
+              <span className="text-[#0b4b8a]"> Faridabad</span>
             </h2>
 
             <div className="inline-flex items-center gap-2 bg-[#dce5f0] text-[#0b4b8a] px-4 py-2 rounded-lg text-sm font-semibold mb-6 w-fit">
@@ -83,14 +83,13 @@ export default function Daycare() {
               Mon–Sat • 09:30 AM — 5:00 PM • Ages 18 months – 6 years
             </div>
 
-            <p className="text-gray-600 text-[14px] md:text-[14px] leading-relaxed mb-10 max-w-2xl">
+            <p className="text-gray-600 text-[14px] md:text-[14px] leading-relaxed mb-4 max-w-2xl">
               Our full-day daycare gives working parents in Faridabad complete peace of mind. A warm, home-like environment where your toddler learns, plays, eats well, rests safely, and grows — every single day. Flexible half-day and part-time options also available.
             </p>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
               {features.map((item, idx) => (
-                <div key={idx} className="bg-white/60 p-4 rounded-xl flex items-center gap-4 hover:bg-white transition-colors duration-300">
+                <div key={idx} className="bg-white/60 p-1 rounded-xl flex items-center gap-4 hover:bg-white transition-colors duration-300">
                   <div className="w-10 h-10 rounded-full bg-[#dce5f0] flex items-center justify-center flex-shrink-0">
                     {item.icon}
                   </div>
@@ -102,7 +101,6 @@ export default function Daycare() {
               ))}
             </div>
 
-            {/* CTA Button */}
             <div>
               <Link 
                 href="#contact" 
