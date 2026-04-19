@@ -2,6 +2,7 @@
 
 "use client";
 import React, { useRef } from "react";
+import Image from "next/image"; // Added for fallback images
 
 const testimonialsData = [
   {
@@ -9,6 +10,7 @@ const testimonialsData = [
     relation: "Mother of Aarav (Nursery)",
     review: "EuroKids Sector 86 has been a second home for my son. The teachers are incredibly caring, and the daily activities keep him so engaged. Highly recommended for working parents!",
     rating: 5,
+    videoSrc: "/video/01.mp4", // Re-added video source
     bgColor: "bg-[#e5eaff]", 
     accentColor: "text-[#183385]"
   },
@@ -17,6 +19,7 @@ const testimonialsData = [
     relation: "Father of Diya (Playgroup)",
     review: "We were very anxious about sending our daughter to a preschool, but the safety measures, hygiene, and the friendly staff here are top-notch. She loves going to school everyday.",
     rating: 5,
+    videoSrc: "/video/02.mp4",
     bgColor: "bg-[#fce7f3]", 
     accentColor: "text-[#ec008c]"
   },
@@ -25,6 +28,7 @@ const testimonialsData = [
     relation: "Mother of Vihaan (Euro Senior)",
     review: "The curriculum is perfectly balanced with fun and learning. I have seen a massive improvement in Vihaan's communication skills and confidence. Kudos to the entire team!",
     rating: 5,
+    videoSrc: "/video/03.mp4",
     bgColor: "bg-[#fef3c7]", 
     accentColor: "text-[#d97706]"
   },
@@ -33,6 +37,7 @@ const testimonialsData = [
     relation: "Parents of Kabir (Toddler)",
     review: "The toddler transition program was so gentle. Kabir settled in within just a week! The teachers send regular updates, which gives us immense peace of mind.",
     rating: 5,
+    videoSrc: "/video/04.mp4",
     bgColor: "bg-[#e5eaff]", 
     accentColor: "text-[#183385]"
   },
@@ -41,6 +46,7 @@ const testimonialsData = [
     relation: "Mother of Ananya (Euro Junior)",
     review: "Interactive learning and wonderful teachers! Ananya has started reading small words and her curiosity has grown leaps and bounds since she joined.",
     rating: 5,
+    videoSrc: "/video/01.mp4", // Recycling video paths
     bgColor: "bg-[#fce7f3]", 
     accentColor: "text-[#ec008c]"
   },
@@ -49,6 +55,7 @@ const testimonialsData = [
     relation: "Father of Reyansh (Daycare)",
     review: "Finding a safe daycare was our priority. EuroKids Sector 86 exceeded our expectations with their hygiene, CCTV access, and very caring support staff.",
     rating: 5,
+    videoSrc: "/video/02.mp4",
     bgColor: "bg-[#fef3c7]", 
     accentColor: "text-[#d97706]"
   },
@@ -57,6 +64,7 @@ const testimonialsData = [
     relation: "Parents of Myra (Nursery)",
     review: "We love the focus on holistic development. Myra is always excited to show us the art and craft she does at school. Thank you EuroKids team!",
     rating: 5,
+    videoSrc: "/video/03.mp4",
     bgColor: "bg-[#e5eaff]", 
     accentColor: "text-[#183385]"
   }
@@ -77,8 +85,8 @@ export default function Testimonials() {
       
       <div className="max-w-7xl mx-auto relative z-10 px-4 lg:px-8">
         
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-[#183385] text-[17px] sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold flex flex-wrap items-center justify-center gap-2 md:gap-3 leading-snug">
+        <div className="text-center mb-10 md:mb-14">
+          <h2 className="text-[#183385] text-[22px] sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold flex flex-wrap items-center justify-center gap-2 md:gap-3 leading-snug">
             <span className="text-[#ec008c] text-3xl sm:text-4xl drop-shadow-sm">★</span> 
             What Parents Say About Us
             <span className="text-[#ec008c] text-3xl sm:text-4xl drop-shadow-sm">★</span>
@@ -88,6 +96,7 @@ export default function Testimonials() {
           </p>
         </div>
 
+        {/* Text and Video Testimonials Slider */}
         <div className="relative w-full">
           
           <button 
@@ -105,37 +114,58 @@ export default function Testimonials() {
             {testimonialsData.map((testimonial, index) => (
               <article 
                 key={index} 
-                className={`${testimonial.bgColor} p-8 md:p-10 rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-300 w-[85vw] sm:w-[350px] lg:w-[400px] snap-center shrink-0 flex flex-col relative group border border-transparent hover:border-white/50`}
+                className={`${testimonial.bgColor} rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-300 w-[85vw] sm:w-[350px] lg:w-[400px] snap-center shrink-0 flex flex-col relative group border border-transparent hover:border-white/50 overflow-hidden`}
               >
                 
-                <div className="absolute top-6 right-8 opacity-10 group-hover:scale-110 transition-transform duration-500 pointer-events-none">
-                  <svg className={`w-16 h-16 ${testimonial.accentColor}`} fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
+                {/* Media Section: Video */}
+                <div className="relative h-48 sm:h-56 w-full bg-gray-200">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src={testimonial.videoSrc} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  {/* Subtle gradient to blend video with content */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
                 </div>
 
-                <div className="flex gap-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#ffb600]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                {/* Content Section */}
+                <div className="p-6 md:p-8 flex-grow flex flex-col relative">
+                  
+                  <div className="absolute top-4 right-6 opacity-10 group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+                    <svg className={`w-12 h-12 ${testimonial.accentColor}`} fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>
-                  ))}
-                </div>
-
-                <p className="text-gray-700 text-[15px] md:text-base leading-relaxed font-medium mb-8 flex-1 italic relative z-10">
-                  "{testimonial.review}"
-                </p>
-
-                <div className="flex items-center gap-4 mt-auto relative z-10">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold text-white ${testimonial.accentColor.replace('text-', 'bg-')}`}>
-                    {testimonial.name.charAt(0)}
                   </div>
-                  <div>
-                    <h4 className="font-bold text-[#183385] text-base">{testimonial.name}</h4>
-                    <p className="text-gray-500 text-xs font-semibold">{testimonial.relation}</p>
-                  </div>
-                </div>
 
+                  <div className="flex gap-1 mb-4 relative z-10">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <svg key={i} className="w-4 h-4 text-[#ffb600]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))} 
+                  </div>
+
+                  <p className="text-gray-700 text-[14px] md:text-[15px] leading-relaxed font-medium mb-6 flex-1 italic relative z-10">
+                    "{testimonial.review}"
+                  </p>
+
+                  <div className="flex items-center gap-4 mt-auto relative z-10 border-t border-black/5 pt-4">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold text-white ${testimonial.accentColor.replace('text-', 'bg-')}`}>
+                      {testimonial.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[#183385] text-[15px]">{testimonial.name}</h4>
+                      <p className="text-gray-500 text-[11px] font-semibold">{testimonial.relation}</p>
+                    </div>
+                  </div>
+
+                </div>
               </article>
             ))}
           </div>
