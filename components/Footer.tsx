@@ -1,8 +1,18 @@
+// components/Footer.tsx
+
+"use client"; 
+
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  // Ye function signal (event) bhejega CtaBanner ko
+  const handleOpenModal = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.dispatchEvent(new Event("open-whatsapp-modal"));
+  };
 
   return (
     <footer className="w-full bg-[#0b4b8a] border-t border-slate-800 pt-15 pb-8 text-slate-300 font-sans">
@@ -98,7 +108,8 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6">
-              <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-[#fff] text-[#185bc3] px-5 py-2.5 rounded-md text-sm font-semibold transition-colors duration-300 w-fit">
+              {/* YAHAN onClick CHANGE KIYA HAI */}
+              <Link href="#" onClick={handleOpenModal} className="inline-flex items-center justify-center gap-2 bg-[#fff] text-[#185bc3] px-5 py-2.5 rounded-md text-sm font-semibold transition-colors duration-300 w-fit">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 Enquire Now
               </Link>
