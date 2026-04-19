@@ -4,7 +4,7 @@ import React from "react";
 
 export default function LocationContact() {
   return (
-    <section className="w-full py-5 md:py-10 px-4 lg:px-8 bg-[#fdfdfd] relative border-t border-gray-100" id="Contact">
+    <section className="w-full py-5 md:py-10 px-4 lg:px-8 bg-[#fdfdfd] relative border-t border-gray-100" id="contact">
       <div className="max-w-7xl mx-auto">
         
         <div className="text-center mb-12 md:mb-16">

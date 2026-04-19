@@ -73,7 +73,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="w-full py-16 md:py-10 bg-white relative overflow-hidden border-t border-gray-50" id="Reviews">
+    <section className="w-full py-16 md:py-10 bg-white relative overflow-hidden border-t border-gray-50" id="reviews">
       
       <div className="max-w-7xl mx-auto relative z-10 px-4 lg:px-8">
         
