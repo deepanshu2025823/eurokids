@@ -163,9 +163,9 @@ export default function Programs() {
                   <span className="bg-[#0b4b8a] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-md">
                     {program.days}
                   </span>
-                  <span className="bg-[#0b4b8a] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-md">
+                  {/* <span className="bg-[#0b4b8a] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-md">
                     {program.hours}
-                  </span>
+                  </span> */}
                 </div>
               </div>
 
