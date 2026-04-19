@@ -64,10 +64,10 @@ export default function Schedule() {
                   <div className="absolute inset-[-4px] rounded-full border border-[#d97706] opacity-60"></div>
                 </div>
 
-                <div className="ml-6 lg:ml-0 lg:mt-8 mb-2 lg:mb-0 w-full lg:w-auto text-left lg:text-center">
-                  {/* <span className="inline-block bg-[#d97706] text-white px-5 py-1.5 rounded-full text-xs font-bold shadow-md whitespace-nowrap">
+                <div className="ml-6 lg:ml-0 lg:mt-8 mb-4 lg:mb-8 w-full lg:w-auto text-left lg:text-center">
+                  <span className="inline-block bg-[#d97706] text-white px-5 py-1.5 rounded-full text-xs font-bold shadow-md whitespace-nowrap">
                     {item.time}
-                  </span> */}
+                  </span>
                 </div>
 
                 <div className="ml-6 lg:ml-0 bg-white lg:bg-transparent p-5 lg:p-0 rounded-2xl shadow-sm lg:shadow-none border border-gray-100 lg:border-transparent w-full text-left lg:text-center mt-2 lg:mt-0 transition-all duration-300 lg:hover:-translate-y-1">
