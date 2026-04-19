@@ -24,16 +24,21 @@ export default function Footer() {
   const handleWhatsAppSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     
-    const message = `*New Enquiry from Website*%0A
+    // Creating a clean, multi-line raw string first
+    const rawMessage = `*New Admission Enquiry*
+
 *Parent's Name:* ${formData.parentName}
 *Child's Name:* ${formData.childName}
-*Phone Number:* ${formData.phone}
+*Phone:* ${formData.phone}
 *Child's Age:* ${formData.childAge}
-*Program:* ${formData.program}
-*Looking for Daycare:* ${formData.daycare}`;
+*Interested Program:* ${formData.program}
+*Need Daycare:* ${formData.daycare}`;
+
+    // Properly encoding the message for a URL so newlines work correctly
+    const encodedMessage = encodeURIComponent(rawMessage);
 
     const whatsappNumber = "919560096091";
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
     
@@ -124,7 +129,7 @@ export default function Footer() {
                 <li className="flex items-start">
                   <svg className="w-5 h-5 text-[#fbbf24] mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                   <span className="text-white text-sm leading-relaxed">
-                    Summer Palm Society, Near Amolik Chowk, Sector-86, Faridabad - 121002
+                    Summer Palms Society, Near Amolik Chowk, Sector-86, Faridabad - 121002
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -142,7 +147,6 @@ export default function Footer() {
               </ul>
 
               <div className="mt-6">
-                {/* Changed from Link to Button to trigger modal */}
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="inline-flex items-center justify-center gap-2 bg-[#fff] text-[#185bc3] px-5 py-2.5 rounded-md text-sm font-semibold transition-colors duration-300 w-fit hover:bg-gray-100"
