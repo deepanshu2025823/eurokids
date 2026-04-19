@@ -40,7 +40,7 @@ export default function Home() {
       <FAQ />
       <CtaBanner />
       <LocationContact />
-      <InstagramFeed />
+      {/* <InstagramFeed /> */}
       <Footer />
       <BottomNav />
       
