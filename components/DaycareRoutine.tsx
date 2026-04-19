@@ -94,9 +94,9 @@ export default function DaycareRoutine() {
                 
                 <div className="absolute top-2 -left-[18px] w-4 h-4 rounded-full border-[3px] border-[#183385] bg-white z-10 group-hover:scale-125 group-hover:border-[#ffb600] transition-all duration-300"></div>
                 
-                <div className="inline-block bg-[#183385] text-white text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-sm">
+                {/* <div className="inline-block bg-[#183385] text-white text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-sm">
                   {step.time}
-                </div>
+                </div> */}
                 
                 <div className="bg-white rounded-2xl p-4 shadow-md border border-gray-50 flex items-start gap-4 hover:-translate-y-1 hover:shadow-lg transition-transform duration-300">
                   <div className="text-3xl bg-blue-50/50 p-2 rounded-xl">{step.icon}</div>
