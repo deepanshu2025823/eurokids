@@ -5,14 +5,13 @@ import HeroSection from "@/components/HeroSection";
 import StatsBanner from "@/components/StatsBanner";
 import QuickEnquiryBar from "@/components/QuickEnquiryBar";
 import AboutCentre from "@/components/AboutCentre";
+import PrincipalMessage from "@/components/PrincipalMessage"; 
 import Programs from "@/components/Programs";
 import DayCare from "@/components/Daycare";
 import DaycareRoutine from "@/components/DaycareRoutine";
-// import WhatsAppConnect from "@/components/WhatsAppConnect";
 import AfterSchool from "@/components/AfterSchool";
 import Schedule from "@/components/Schedule";
 import Services from "@/components/Services";
-// import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CtaBanner from "@/components/CtaBanner";
@@ -33,12 +32,11 @@ export default function Home() {
       <Programs />
       <DayCare />
       <DaycareRoutine />
-      {/* <WhatsAppConnect /> */}
       <AfterSchool />
       <Schedule />
       <Services />
-      {/* <WhyChooseUs /> */}
       <Testimonials />
+      <PrincipalMessage /> 
       <FAQ />
       <CtaBanner />
       <LocationContact />

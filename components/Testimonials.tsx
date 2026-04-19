@@ -10,7 +10,7 @@ const testimonialsData = [
     relation: "Mother of Aarav (Nursery)",
     review: "EuroKids Sector 86 has been a second home for my son. The teachers are incredibly caring, and the daily activities keep him so engaged. Highly recommended for working parents!",
     rating: 5,
-    videoSrc: "/video/01.mp4", // Re-added video source
+    videoSrc: "/video/01.mp4", 
     bgColor: "bg-[#e5eaff]", 
     accentColor: "text-[#183385]"
   },
@@ -28,7 +28,7 @@ const testimonialsData = [
     relation: "Mother of Vihaan (Euro Senior)",
     review: "The curriculum is perfectly balanced with fun and learning. I have seen a massive improvement in Vihaan's communication skills and confidence. Kudos to the entire team!",
     rating: 5,
-    videoSrc: "/video/03.mp4",
+    videoSrc: "/video/04.mp4",
     bgColor: "bg-[#fef3c7]", 
     accentColor: "text-[#d97706]"
   },
@@ -37,7 +37,7 @@ const testimonialsData = [
     relation: "Parents of Kabir (Toddler)",
     review: "The toddler transition program was so gentle. Kabir settled in within just a week! The teachers send regular updates, which gives us immense peace of mind.",
     rating: 5,
-    videoSrc: "/video/04.mp4",
+    videoSrc: "/video/01.mp4",
     bgColor: "bg-[#e5eaff]", 
     accentColor: "text-[#183385]"
   },
@@ -46,7 +46,7 @@ const testimonialsData = [
     relation: "Mother of Ananya (Euro Junior)",
     review: "Interactive learning and wonderful teachers! Ananya has started reading small words and her curiosity has grown leaps and bounds since she joined.",
     rating: 5,
-    videoSrc: "/video/01.mp4", // Recycling video paths
+    videoSrc: "/video/02.mp4", 
     bgColor: "bg-[#fce7f3]", 
     accentColor: "text-[#ec008c]"
   },
@@ -55,7 +55,7 @@ const testimonialsData = [
     relation: "Father of Reyansh (Daycare)",
     review: "Finding a safe daycare was our priority. EuroKids Sector 86 exceeded our expectations with their hygiene, CCTV access, and very caring support staff.",
     rating: 5,
-    videoSrc: "/video/02.mp4",
+    videoSrc: "/video/04.mp4",
     bgColor: "bg-[#fef3c7]", 
     accentColor: "text-[#d97706]"
   },
@@ -64,7 +64,7 @@ const testimonialsData = [
     relation: "Parents of Myra (Nursery)",
     review: "We love the focus on holistic development. Myra is always excited to show us the art and craft she does at school. Thank you EuroKids team!",
     rating: 5,
-    videoSrc: "/video/03.mp4",
+    videoSrc: "/video/01.mp4",
     bgColor: "bg-[#e5eaff]", 
     accentColor: "text-[#183385]"
   }
