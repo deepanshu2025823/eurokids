@@ -41,7 +41,7 @@ export default function FAQ() {
     <section className="w-full py-16 md:py-0 bg-white relative" id="faq">
       <div className="max-w-4xl mx-auto px-4 lg:px-8">
         
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-10 lg:mb-5">
           <div className="inline-flex items-center justify-center gap-2 bg-[#eaf2fd] text-[#1d6ade] font-bold text-[11px] md:text-xs tracking-[0.15em] uppercase px-4 py-2 rounded-full mb-6">
             <span className="text-[#ec008c]">?</span> FREQUENTLY ASKED QUESTIONS
           </div>
@@ -61,7 +61,7 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full py-6 flex items-center justify-between text-left focus:outline-none gap-4"
+                  className="w-full py-4 flex items-center justify-between text-left focus:outline-none gap-4"
                   aria-expanded={isOpen}
                 >
                   <h3 className={`text-base md:text-[19px] font-bold pr-4 transition-colors duration-300 ${isOpen ? 'text-[#1d6ade]' : 'text-[#111827] group-hover:text-[#183385]'}`}>
