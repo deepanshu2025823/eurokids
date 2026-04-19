@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Daycare() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [todayDate, setTodayDate] = useState("");
   const [formData, setFormData] = useState({
     parentName: "",
     phone: "",
@@ -14,12 +15,57 @@ export default function Daycare() {
     careType: "Full-Day Daycare",
   });
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  // Client-side par current date nikalne ke liye taaki past dates block ho sakein
+  useEffect(() => {
+    const today = new Date().toISOString().split("T")[0];
+    setTodayDate(today);
+  }, []);
+
+  // List of Government/National Holidays (Format: YYYY-MM-DD)
+  // Aap apne hisaab se isme dates add/remove kar sakte hain
+  const governmentHolidays = [
+    "2026-01-26", // Republic Day
+    "2026-03-03", // Holi (Approx Date)
+    "2026-08-15", // Independence Day
+    "2026-10-02", // Gandhi Jayanti
+    "2026-11-08", // Diwali (Approx Date)
+    "2026-12-25", // Christmas
+  ];
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // --- Strict Date Validation ---
+    if (name === "tourDate") {
+      const selectedDate = new Date(value);
+      const dayOfWeek = selectedDate.getDay(); // 0 is Sunday, 1 is Monday...
+
+      // Check for Sunday
+      if (dayOfWeek === 0) {
+        alert("Centre is closed on Sundays. Please select a date from Monday to Saturday.");
+        return; // Reject input
+      }
+
+      // Check for Government Holidays
+      if (governmentHolidays.includes(value)) {
+        alert("Centre is closed on this Government Holiday. Please select another date.");
+        return; // Reject input
+      }
+    }
+
+    // --- Strict Time Validation ---
+    if (name === "tourTime") {
+      // Allow only between 09:00 and 17:00 (5 PM)
+      if (value < "09:00" || value > "17:00") {
+        alert("Tours are only available between 09:00 AM and 05:00 PM. Please select a valid time.");
+        return; // Reject input
+      }
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleWhatsAppSubmit = (e: { preventDefault: () => void; }) => {
+  const handleWhatsAppSubmit = (e) => {
     e.preventDefault();
     
     // Clean, multi-line string for the WhatsApp message
@@ -248,13 +294,15 @@ export default function Daycare() {
                 
                 {/* Parent's Name */}
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-semibold text-gray-700">Parent's Name</label>
+                  <label className="block text-sm font-semibold text-gray-700">Parent's Name <span className="text-red-500">*</span></label>
                   <input
                     type="text"
                     name="parentName"
                     value={formData.parentName}
                     onChange={handleChange}
                     required
+                    pattern="^[A-Za-z\s]{2,50}$"
+                    title="Please enter a valid name (letters only)"
                     placeholder="Enter your name"
                     className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0b4b8a] focus:border-[#0b4b8a] outline-none transition-all text-gray-800"
                   />
@@ -263,21 +311,21 @@ export default function Daycare() {
                 {/* Phone & Child's Age */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="block text-sm font-semibold text-gray-700">Phone Number</label>
+                    <label className="block text-sm font-semibold text-gray-700">Phone Number <span className="text-red-500">*</span></label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      pattern="[0-9]{10}"
+                      pattern="^[6-9]\d{9}$"
                       title="10-digit mobile number"
                       placeholder="10-digit number"
                       className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0b4b8a] focus:border-[#0b4b8a] outline-none transition-all text-gray-800"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="block text-sm font-semibold text-gray-700">Child's Age</label>
+                    <label className="block text-sm font-semibold text-gray-700">Child's Age <span className="text-red-500">*</span></label>
                     <input
                       type="text"
                       name="childAge"
@@ -293,24 +341,29 @@ export default function Daycare() {
                 {/* Date & Time (Tour details) */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="block text-sm font-semibold text-gray-700">Tour Date</label>
+                    <label className="block text-sm font-semibold text-gray-700">Tour Date <span className="text-red-500">*</span></label>
                     <input
                       type="date"
                       name="tourDate"
                       value={formData.tourDate}
                       onChange={handleChange}
                       required
+                      min={todayDate} // Disable past dates
+                      title="Select a date between Monday and Saturday"
                       className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0b4b8a] focus:border-[#0b4b8a] outline-none transition-all text-gray-800 bg-white"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="block text-sm font-semibold text-gray-700">Tour Time</label>
+                    <label className="block text-sm font-semibold text-gray-700">Tour Time <span className="text-red-500">*</span></label>
                     <input
                       type="time"
                       name="tourTime"
                       value={formData.tourTime}
                       onChange={handleChange}
                       required
+                      min="09:00" // Form level validation
+                      max="17:00"
+                      title="Select a time between 09:00 AM and 05:00 PM"
                       className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0b4b8a] focus:border-[#0b4b8a] outline-none transition-all text-gray-800 bg-white"
                     />
                   </div>
