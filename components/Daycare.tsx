@@ -14,61 +14,68 @@ export default function Daycare() {
     tourTime: "",
     careType: "Full-Day Daycare",
   });
+  
+  const [errors, setErrors] = useState({
+    tourDate: "",
+    tourTime: ""
+  });
 
-  // Client-side par current date nikalne ke liye taaki past dates block ho sakein
   useEffect(() => {
     const today = new Date().toISOString().split("T")[0];
     setTodayDate(today);
   }, []);
 
-  // List of Government/National Holidays (Format: YYYY-MM-DD)
-  // Aap apne hisaab se isme dates add/remove kar sakte hain
   const governmentHolidays = [
-    "2026-01-26", // Republic Day
-    "2026-03-03", // Holi (Approx Date)
-    "2026-08-15", // Independence Day
-    "2026-10-02", // Gandhi Jayanti
-    "2026-11-08", // Diwali (Approx Date)
-    "2026-12-25", // Christmas
+    "2026-01-26", 
+    "2026-03-03", 
+    "2026-08-15", 
+    "2026-10-02", 
+    "2026-11-08", 
+    "2026-12-25", 
   ];
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-
-    // --- Strict Date Validation ---
-    if (name === "tourDate") {
-      const selectedDate = new Date(value);
-      const dayOfWeek = selectedDate.getDay(); // 0 is Sunday, 1 is Monday...
-
-      // Check for Sunday
-      if (dayOfWeek === 0) {
-        alert("Centre is closed on Sundays. Please select a date from Monday to Saturday.");
-        return; // Reject input
-      }
-
-      // Check for Government Holidays
-      if (governmentHolidays.includes(value)) {
-        alert("Centre is closed on this Government Holiday. Please select another date.");
-        return; // Reject input
-      }
-    }
-
-    // --- Strict Time Validation ---
-    if (name === "tourTime") {
-      // Allow only between 09:00 and 17:00 (5 PM)
-      if (value < "09:00" || value > "17:00") {
-        alert("Tours are only available between 09:00 AM and 05:00 PM. Please select a valid time.");
-        return; // Reject input
-      }
-    }
-
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    if (name in errors) {
+      setErrors((prev) => ({ ...prev, [name as keyof typeof errors]: "" }));
+    }
   };
 
-  const handleWhatsAppSubmit = (e) => {
+  const handleWhatsAppSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    
-    // Clean, multi-line string for the WhatsApp message
+    let formIsValid = true;
+    let newErrors = { tourDate: "", tourTime: "" };
+
+    if (formData.tourDate) {
+      const selectedDate = new Date(formData.tourDate);
+      const dayOfWeek = selectedDate.getDay(); 
+
+      if (dayOfWeek === 0) {
+        newErrors.tourDate = "Centre is closed on Sundays.";
+        formIsValid = false;
+      } else if (governmentHolidays.includes(formData.tourDate)) {
+        newErrors.tourDate = "Centre is closed on this Holiday.";
+        formIsValid = false;
+      }
+    }
+
+    // --- Strict Time Validation on Submit ---
+    if (formData.tourTime) {
+      if (formData.tourTime < "09:00" || formData.tourTime > "17:00") {
+        newErrors.tourTime = "Available only between 09:00 AM - 05:00 PM.";
+        formIsValid = false;
+      }
+    }
+
+    // Agar koi error hai, toh state update karo aur aage mat badho
+    if (!formIsValid) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // Agar sab theek hai toh WhatsApp par bhejo
     const rawMessage = `*New Daycare Tour Booking*
 
 *Parent's Name:* ${formData.parentName}
@@ -78,16 +85,13 @@ export default function Daycare() {
 *Preferred Tour Time:* ${formData.tourTime}
 *Interested In:* ${formData.careType}`;
 
-    // Properly encode to keep newlines intact
     const encodedMessage = encodeURIComponent(rawMessage);
-
     const whatsappNumber = "919560096091";
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
     
     setIsModalOpen(false);
-    
     setFormData({
       parentName: "",
       phone: "",
@@ -96,6 +100,7 @@ export default function Daycare() {
       tourTime: "",
       careType: "Full-Day Daycare",
     });
+    setErrors({ tourDate: "", tourTime: "" });
   };
 
   const features = [
@@ -348,10 +353,11 @@ export default function Daycare() {
                       value={formData.tourDate}
                       onChange={handleChange}
                       required
-                      min={todayDate} // Disable past dates
-                      title="Select a date between Monday and Saturday"
-                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0b4b8a] focus:border-[#0b4b8a] outline-none transition-all text-gray-800 bg-white"
+                      min={todayDate}
+                      className={`w-full px-4 py-2.5 rounded-lg border ${errors.tourDate ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-[#0b4b8a] focus:border-[#0b4b8a]'} outline-none transition-all text-gray-800 bg-white`}
                     />
+                    {/* Inline Error Message for Date */}
+                    {errors.tourDate && <p className="text-red-500 text-xs mt-1 font-medium">{errors.tourDate}</p>}
                   </div>
                   <div className="space-y-1.5">
                     <label className="block text-sm font-semibold text-gray-700">Tour Time <span className="text-red-500">*</span></label>
@@ -361,11 +367,10 @@ export default function Daycare() {
                       value={formData.tourTime}
                       onChange={handleChange}
                       required
-                      min="09:00" // Form level validation
-                      max="17:00"
-                      title="Select a time between 09:00 AM and 05:00 PM"
-                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0b4b8a] focus:border-[#0b4b8a] outline-none transition-all text-gray-800 bg-white"
+                      className={`w-full px-4 py-2.5 rounded-lg border ${errors.tourTime ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-[#0b4b8a] focus:border-[#0b4b8a]'} outline-none transition-all text-gray-800 bg-white`}
                     />
+                    {/* Inline Error Message for Time */}
+                    {errors.tourTime && <p className="text-red-500 text-xs mt-1 font-medium">{errors.tourTime}</p>}
                   </div>
                 </div>
 

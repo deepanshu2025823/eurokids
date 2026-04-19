@@ -59,7 +59,7 @@ export default function PrincipalMessage() {
                 M
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-900">Megha Goyel</h4>
+                <h4 className="text-xl font-bold text-gray-900">Megha Goel</h4>
                 <p className="text-sm font-semibold text-[#ec008c]">Centre Head, EuroKids Sec 86</p>
               </div>
             </div>
