@@ -97,19 +97,19 @@ export default function AboutCentre() {
 
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
             
-            <div className="inline-flex items-center gap-2 bg-[#eaf2fd] text-[#1d6ade] font-bold text-xs tracking-[0.15em] uppercase px-4 py-2 rounded-full mb-6">
-              <span className="text-[#ec008c]">📍</span> ABOUT OUR CENTRE
+            <div className="inline-flex items-center gap-2 bg-[#eaf2fd] text-[#1d6ade] font-bold text-[12px] tracking-[0.15em] uppercase px-4 py-2 rounded-full mb-6">
+              ABOUT OUR CENTRE
             </div>
 
-            <h2 className="text-[#183385] text-[24px] sm:text-3xl lg:text-[30px] font-extrabold mb-6 leading-[1.15] tracking-tight">
+            <h2 className="text-[#183385] text-[18px] sm:text-3xl lg:text-[30px] font-extrabold mb-4 leading-[1.15] tracking-tight">
               Faridabad's Most Trusted <span className="text-[#1d6ade]">Preschool, Daycare & Activity Center</span>
             </h2>
 
-            <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed mb-4 font-medium">
+            <p className="text-gray-600 text-[12px] sm:text-[14px] leading-relaxed mb-4 font-medium">
               Welcome to <strong>EuroKids Preschool, Daycare & Activity Center, Sector 86, Faridabad</strong> — located in Summer Palm Society, near Amolik Chowk. We bring 25 years of EuroKids' award-winning early childhood education right to your doorstep, offering Preschool, Full-Day Daycare, and After-School Care under one trusted roof.
             </p>
 
-            <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed mb-10 font-medium">
+            <p className="text-gray-600 text-[12px] sm:text-[14px] leading-relaxed mb-4 font-medium">
               We go beyond traditional learning with <strong>Heureka</strong> — a visible thinking curriculum inspired by Harvard's Project Zero. With CCTV surveillance, trained teachers, daily hygiene protocols, and an open-door parent policy, we are the most trusted childcare provider near Sector 86, Faridabad.
             </p>
 
@@ -119,7 +119,7 @@ export default function AboutCentre() {
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${feature.bgColor}`}>
                     {feature.icon}
                   </div>
-                  <span className="text-gray-800 font-bold text-sm">{feature.name}</span>
+                  <span className="text-gray-800 font-regular text-[12px]">{feature.name}</span>
                 </div>
               ))}
             </div>
