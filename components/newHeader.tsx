@@ -39,7 +39,7 @@ export default function Header() {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
         isScrolled || isMenuOpen 
           ? "bg-white shadow-md" 
-          : "bg-transparent"
+          : "bg-gradient-to-b from-black/60 to-transparent" 
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -63,19 +63,20 @@ export default function Header() {
                 width={160}
                 height={55}
                 priority
-                className="object-contain w-[120px] sm:w-[140px] md:w-[150px] h-auto drop-shadow-md"
+                className={`object-contain w-[120px] sm:w-[140px] md:w-[150px] h-auto transition-all duration-300 ${isScrolled ? '' : 'drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]'}`}
               />
             </Link>
           </div>
 
-          {/* Right Side: Desktop Menu */}
           <nav className="hidden lg:flex items-center space-x-6 relative z-10">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`font-semibold text-sm transition-colors duration-200 hover:text-[#0b4b8a] ${
-                  isScrolled ? 'text-gray-700' : 'text-gray-800'
+                className={`font-semibold text-sm transition-all duration-200 ${
+                  isScrolled 
+                    ? 'text-gray-700 hover:text-[#0b4b8a]' 
+                    : 'text-white hover:text-blue-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]'
                 }`}
               >
                 {item.name}
@@ -87,8 +88,10 @@ export default function Header() {
           <div className="lg:hidden flex items-center relative z-10">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`focus:outline-none transition-colors duration-300 hover:text-[#0b4b8a] ${
-                isScrolled || isMenuOpen ? 'text-gray-700' : 'text-gray-800'
+              className={`focus:outline-none transition-all duration-300 ${
+                isScrolled || isMenuOpen 
+                  ? 'text-gray-700 hover:text-[#0b4b8a]' 
+                  : 'text-white hover:text-blue-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]'
               }`}
               aria-label="Toggle Menu"
             >
