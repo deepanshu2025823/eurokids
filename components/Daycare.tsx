@@ -80,7 +80,7 @@ export default function Daycare() {
 
             <div className="inline-flex items-center gap-2 bg-[#dce5f0] text-[#0b4b8a] px-4 py-2 rounded-lg text-sm font-semibold mb-6 w-fit">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              Mon–Sat • 09:30 AM — 5:00 PM • Ages 18 months – 6 years
+              Mon–Sat • 09:00 AM — 6:00 PM • Ages 18 months – 6 years
             </div>
 
             <p className="text-gray-600 text-[14px] md:text-[14px] leading-relaxed mb-4 max-w-2xl">

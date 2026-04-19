@@ -47,7 +47,7 @@ const servicesData = [
 
 export default function Services() {
   return (
-    <section className="w-full py-16 md:py-24 px-4 lg:px-8 bg-white relative overflow-hidden">
+    <section className="w-full py-16 md:py-10 px-4 lg:px-8 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="text-center mb-14 md:mb-20">

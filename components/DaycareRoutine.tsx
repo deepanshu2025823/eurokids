@@ -49,9 +49,9 @@ export default function DaycareRoutine() {
 
       <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         
-        <div className="text-center mb-16 lg:mb-24">
+        <div className="text-center mb-16 lg:mb-10">
           <div className="inline-flex items-center gap-2 bg-[#eef2f6] text-[#183385] font-bold text-xs tracking-wider uppercase px-4 py-2 rounded-full mb-4">
-            <span>🗓️</span> WHAT DOES A DAY LOOK LIKE?
+            WHAT DOES A DAY LOOK LIKE?
           </div>
           <h2 className="text-[#183385] text-3xl md:text-4xl lg:text-[40px] font-extrabold mb-4 leading-tight">
             A Perfectly Structured Day for Your Little One
