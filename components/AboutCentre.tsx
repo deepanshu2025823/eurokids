@@ -62,7 +62,7 @@ const features = [
 
 export default function AboutCentre() {
   return (
-    <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden" id="about">
+    <section className="w-full py-16 md:py-10 bg-white relative overflow-hidden" id="about">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">

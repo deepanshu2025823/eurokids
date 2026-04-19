@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const programs = [
   {
@@ -18,7 +19,7 @@ const programs = [
       "Structured 20-week life skills curriculum",
       "Child First - Safety First at all times"
     ],
-    videoSrc: "/video/01.mp4",
+    imageSrc: "/slider/01.jpeg",
     btnText: "Enquire for EuroTots",
     btnColor: "bg-[#0b4b8a] hover:bg-blue-800"
   },
@@ -37,7 +38,7 @@ const programs = [
       "Physical, emotional & social engagement",
       "Shaping scientific thought in children"
     ],
-    videoSrc: "/video/02.mp4",
+    imageSrc: "/slider/02.jpeg",
     btnText: "Enquire for Playgroup",
     btnColor: "bg-[#0b4b8a] hover:bg-blue-800"
   },
@@ -56,7 +57,7 @@ const programs = [
       "Cultivating creativity & curiosity",
       "Imagination building & motor skills"
     ],
-    videoSrc: "/video/03.mp4",
+    imageSrc: "/slider/03.jpeg",
     btnText: "Enquire for Nursery",
     btnColor: "bg-[#0b4b8a] hover:bg-blue-800"
   },
@@ -75,7 +76,7 @@ const programs = [
       "Each child grows at their own pace",
       "Building Brain Power & social skills"
     ],
-    videoSrc: "/video/04.mp4", 
+    imageSrc: "/slider/04.jpeg", 
     btnText: "Enquire for EuroJunior",
     btnColor: "bg-[#0b4b8a] hover:bg-blue-800"
   },
@@ -94,7 +95,7 @@ const programs = [
       "Inclusive EuroKids learning kits",
       "Complete primary school preparation"
     ],
-    videoSrc: "/video/01.mp4", // Replace with your actual video
+    imageSrc: "/slider/05.jpeg",
     btnText: "Enquire for EuroSenior",
     btnColor: "bg-[#0b4b8a] hover:bg-blue-800"
   },
@@ -113,7 +114,7 @@ const programs = [
       "21st-century skill development",
       "Safe pickup & drop-off options"
     ],
-    videoSrc: "/video/02.mp4", 
+    imageSrc: "/slider/06.jpeg", 
     btnText: "Enquire for After-School",
     btnColor: "bg-[#d97706] hover:bg-[#b45309]" 
   }
@@ -121,7 +122,7 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-20 bg-[#fff]">
+    <section id="programs" className="py-10 bg-[#fff]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -136,7 +137,6 @@ export default function Programs() {
           </p>
         </div>
 
-        {/* Programs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((program) => (
             <div 
@@ -144,21 +144,16 @@ export default function Programs() {
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col"
             >
               
-              {/* Media Section with Badges */}
               <div className="relative h-56 w-full bg-gray-200">
-                {/* Background Video */}
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                  className="w-full h-full object-cover"
-                >
-                  <source src={program.videoSrc} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                {/* Image replaces the Video here */}
+                <Image 
+                  src={program.imageSrc}
+                  alt={program.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover"
+                />
 
-                {/* Top Right Age Badge */}
                 <div className="absolute top-4 right-4 bg-[#0b4b8a] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10">
                   {program.age}
                 </div>
@@ -174,7 +169,6 @@ export default function Programs() {
                 </div>
               </div>
 
-              {/* Content Section */}
               <div className="p-6 md:p-8 flex-grow flex flex-col">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
@@ -185,7 +179,6 @@ export default function Programs() {
                   {program.description}
                 </p>
 
-                {/* Features List */}
                 <ul className="space-y-3 mb-8 flex-grow">
                   {program.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
@@ -197,7 +190,6 @@ export default function Programs() {
                   ))}
                 </ul>
 
-                {/* Button */}
                 <div className="mt-auto">
                   <Link 
                     href="#contact" 
